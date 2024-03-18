@@ -16,4 +16,14 @@ public class Student {
     private String studentName;
     private int studentSemester;
     private ArrayList<String> studentSubjects;
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentId=" + studentId +
+                ", studentName='" + studentName + '\'' +
+                ", studentSemester=" + studentSemester +
+                ", studentSubjects=" + studentSubjects +
+                '}';
+    }
 }

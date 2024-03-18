@@ -25,4 +25,15 @@ public class StudentService {
         return studentRepo.getStudentById(sId);
     }
 
+    public Object addStudent(Student student) {
+        return studentRepo.addStudent(student);
+    }
+
+    public Object updateStudent(Student student) {
+        return studentRepo.updateStudent(student);
+    }
+
+    public Object deleteStudent(int studentId) {
+        return studentRepo.deleteStudent(studentId);
+    }
 }

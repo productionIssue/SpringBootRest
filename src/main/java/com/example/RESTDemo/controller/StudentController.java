@@ -15,24 +15,38 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
-    @GetMapping("/")
+    @GetMapping(path = "/")
     public String getHome() {
         return "Hello world";
     }
 
-    @GetMapping("/load")
+    @GetMapping(path = "/load")
     public void loadData() {
         studentService.loadData();
     }
 
-    @GetMapping("/students")
+    @GetMapping(path = "/students", produces = "application/xml")
     public ArrayList<Student> getStudents() {
         return studentService.getStudents();
     }
 
-    @GetMapping("/student/{sId}")
+    @GetMapping(path = "/student/{sId}")
     public Object getStudentById(@PathVariable("sId") int sId) {
         return studentService.getStudentById(sId);
     }
 
+    @PostMapping(path = "/student", consumes = "application/xml", produces = "application/xml")
+    public Object addStudent(@RequestBody Student student) {
+        return studentService.addStudent(student);
+    }
+
+    @PutMapping(path = "/student")
+    public Object updateStudent(@RequestBody Student student) {
+        return studentService.updateStudent(student);
+    }
+
+    @DeleteMapping(path = "/student/{studentId}")
+    public Object deleteStudent(@PathVariable int studentId) {
+        return studentService.deleteStudent(studentId);
+    }
 }
